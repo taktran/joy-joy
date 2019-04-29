@@ -1,0 +1,17 @@
+{
+  "name": "joyjoy",
+  "version": "0.0.1",
+  "description": "Nintendo Switch JoyCon Gamepad API wrapper",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "start:watch": "nodemon -e js,json -x 'npm start --silent'",
+    "test": "npm run lint",
+    "test:watch": "nodemon -e js,json -x 'npm run test --silent'"
+  },
+  "author": "Tak Tran <contact@tutaktran.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^1.15.3"
+  }
+}
