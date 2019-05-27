@@ -1,0 +1,17 @@
+{
+  "name": "joy-joy",
+  "version": "0.0.1",
+  "description": "A Joy-Con game controller library for the browser",
+  "main": "index.js",
+  "author": "Tak Tran <contact@tutaktran.com>",
+  "license": "MIT",
+  "keywords": [
+    "switch",
+    "nintendo",
+    "joycon",
+    "gamepad"
+  ],
+  "dependencies": {
+    "ulog": "^1.1.0"
+  }
+}
