@@ -4,6 +4,11 @@
   "description": "A Joy-Con game controller library for the browser",
   "main": "index.js",
   "author": "Tak Tran <contact@tutaktran.com>",
+  "homepage": "https://github.com/taktran/joy-joy/tree/master/src/joy-joy",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/taktran/joy-joy.git"
+  },
   "license": "MIT",
   "keywords": [
     "switch",
