@@ -1,0 +1,80 @@
+.container {
+  background-color: white;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 40px;
+}
+
+header h2,
+header h3,
+header h4,
+header h2 a,
+header h3 a,
+header h4 a {
+  color: #999999;
+}
+
+.gamepad-list {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.gamepad {
+  display: inline-block;
+  min-width: 160px;
+  max-width: 300px;
+  padding: 20px;
+  margin: 0 10px;
+}
+
+.gamepad h3 {
+  margin-top: 0;
+}
+
+.gamepad-index {
+  float: right;
+  color: #777;
+}
+
+.onboarding {
+  text-align: center;
+}
+
+.onboarding ol,
+.onboarding p {
+  text-align: left;
+}
+
+.onboarding .joy-con-shoulder {
+  margin-left: 70px;
+}
+
+/* Flash */
+.flash {
+  -webkit-animation: flash linear 1s infinite;
+  animation: flash linear 1s infinite;
+}
+
+@keyframes flash {
+  0% {
+    fill: white;
+  }
+  49% {
+    fill: transparent;
+  }
+  50% {
+    fill: transparent;
+  }
+  99% {
+    fill: transparent;
+  }
+  100% {
+    fill: white;
+  }
+}
