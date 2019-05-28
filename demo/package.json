@@ -1,7 +1,7 @@
 {
   "name": "joy-joy-demo",
   "version": "0.1.0",
-  "homepage": "https://github.com/taktran/joy-joy/tree/master/demo",
+  "homepage": "https://taktran.github.io/joy-joy/",
   "repository": {
     "type": "git",
     "url": "https://github.com/taktran/joy-joy.git"
@@ -15,6 +15,8 @@
     "ulog": "^1.1.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -34,5 +36,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
   }
 }
