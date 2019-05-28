@@ -4,6 +4,7 @@ import FPSStats from 'react-fps-stats';
 
 import './app.css';
 
+import GitHubCorner from './components/github-corner';
 import GamepadList from './components/gamepad-list';
 
 const log = ulog('app');
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <div className="container">
+      <GitHubCorner url="https://github.com/taktran/joy-joy" />
       {stats}
       <section className="main">
         <header>
