@@ -4,6 +4,12 @@ A [Joy-Con](https://en.wikipedia.org/wiki/Joy-Con) game controller library for t
 
 To see a demo of the library, visit https://taktran.github.io/joy-joy/.
 
+## Installation
+
+```javascript
+npm install joy-joy
+```
+
 ## Usage
 
 ```javascript
