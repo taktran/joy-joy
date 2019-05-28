@@ -2,6 +2,8 @@
 
 A demo of the [Joy Joy library](../src/joy-joy).
 
+This demo is deployed to https://taktran.github.io/joy-joy/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Development
@@ -40,3 +42,9 @@ Launches the test runner in the interactive watch mode.
 Run `npm run build`
 
 Builds the app for production to the `build` folder.
+
+## Deployment
+
+To deploy the site to https://taktran.github.io/joy-joy/, run
+
+    npm run deploy
