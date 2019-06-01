@@ -92,9 +92,6 @@ jobs:
     steps:
       - *attach_workspace
       - run:
-          name: Build demo
-          command: npm run build
-      - run:
           name: Deploy demo
           command: npm run deploy
 
