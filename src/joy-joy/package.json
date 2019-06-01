@@ -1,6 +1,6 @@
 {
   "name": "joy-joy",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "A Joy-Con game controller library for the browser",
   "main": "index.js",
   "author": "Tak Tran <contact@tutaktran.com>",
