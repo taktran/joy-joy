@@ -91,6 +91,9 @@ jobs:
     executor: circleci-node-8
     steps:
       - *attach_workspace
+      - add_ssh_keys:
+          fingerprints:
+            - '44:cb:4b:98:b3:00:39:72:1e:69:6e:67:8e:58:f3:73'
       - run:
           name: Deploy demo
           command: npm run deploy
