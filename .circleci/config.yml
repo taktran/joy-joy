@@ -1,0 +1,134 @@
+version: 2.1
+
+references:
+  workspace_root: &workspace_root ~/project
+
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace_root
+
+  filters_branch_build: &filters_branch_build
+    tags:
+      ignore: /.*/
+
+  filters_release_package_build: &filters_release_package_build
+    tags:
+      only:
+        - /^joy-joy-v\d+\.\d+\.\d+(\-\w+\.\d+)?$/
+
+    branches:
+      ignore: /.*/
+
+executors:
+  circleci-node-8:
+    environment:
+      JOY_JOY_DIR: src/joy-joy
+      DEMO_DIR: demo
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/project/build-node-8
+
+commands:
+  install-joy-joy:
+    description: 'NPM install joy-joy dependencies'
+    steps:
+      - run:
+          name: 'Install dependencies'
+          command: cd $JOY_JOY_DIR && npm install
+
+  install-demo:
+    description: 'NPM install demo dependencies'
+    steps:
+      - run:
+          name: 'Install dependencies'
+          command: cd $DEMO_DIR && npm install
+
+jobs:
+  build-node-8:
+    executor: circleci-node-8
+    steps:
+      - checkout
+      - install-joy-joy
+      - install-demo
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - build-node-8
+
+  test-node-8:
+    executor: circleci-node-8
+    steps:
+      - *attach_workspace
+      - run:
+          name: Run tests
+          command: cd $DEMO_DIR && npm test
+
+  publish-joy-joy:
+    working_directory: ~/project/src/joy-joy
+    executor: circleci-node-8
+    steps:
+      - *attach_workspace
+      - run:
+          name: Configure registry.npmjs.org auth token
+          command: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ${HOME}/.npmrc
+      - run:
+          name: Extract package name and semver from git tag
+          command: |
+            # https://circleci.com/docs/2.0/env-vars/#using-bash_env-to-set-environment-variables
+            export RELEASE_SEMVER='v[0-9]{1,3}\.[0-9]{1,2}\.[0-9]{1,2}(-[a-z]+\.[0-9])?';
+            export TARGET_VERSION=$(echo $CIRCLE_TAG | grep -o -E $RELEASE_SEMVER);
+            echo "export TARGET_VERSION=$TARGET_VERSION" >> $BASH_ENV;
+            echo "Creating release ${TARGET_VERSION}";
+      - run:
+          name: Bump package version
+          command: npm version --no-git-tag-version ${TARGET_VERSION}
+      - run:
+          name: Publish package to npm
+          command: npm publish --access public
+
+  publish-demo:
+    working_directory: ~/project/demo
+    executor: circleci-node-8
+    steps:
+      - *attach_workspace
+      - run:
+          name: Build demo
+          command: npm run build
+      - run:
+          name: Deploy demo
+          command: npm run deploy
+
+workflows:
+  version: 2
+
+  build-test:
+    jobs:
+      - build-node-8:
+          filters:
+            <<: *filters_branch_build
+      - test-node-8:
+          filters:
+            <<: *filters_branch_build
+          requires:
+            - build-node-8
+
+  build-test-publish:
+    jobs:
+      - build-node-8:
+          filters:
+            <<: *filters_release_package_build
+      - test-node-8:
+          filters:
+            <<: *filters_release_package_build
+          requires:
+            - build-node-8
+      - publish-joy-joy:
+          filters:
+            <<: *filters_release_package_build
+          requires:
+            - test-node-8
+      - publish-demo:
+          filters:
+            <<: *filters_release_package_build
+          requires:
+            - test-node-8
