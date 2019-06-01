@@ -30,17 +30,15 @@ executors:
 
 commands:
   install-joy-joy:
-    description: 'NPM install joy-joy dependencies'
     steps:
       - run:
-          name: 'Install dependencies'
+          name: 'Install joy-joy dependencies'
           command: cd $JOY_JOY_DIR && npm install
 
   install-demo:
-    description: 'NPM install demo dependencies'
     steps:
       - run:
-          name: 'Install dependencies'
+          name: 'Install demo dependencies'
           command: cd $DEMO_DIR && npm install
 
 jobs:
