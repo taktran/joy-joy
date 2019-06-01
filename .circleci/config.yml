@@ -64,7 +64,7 @@ jobs:
           command: cd $DEMO_DIR && npm test
 
   publish-joy-joy:
-    working_directory: ~/project/src/joy-joy
+    working_directory: ~/project/build-node-8/src/joy-joy
     executor: circleci-node-8
     steps:
       - *attach_workspace
@@ -87,7 +87,7 @@ jobs:
           command: npm publish --access public
 
   publish-demo:
-    working_directory: ~/project/demo
+    working_directory: ~/project/build-node-8/demo
     executor: circleci-node-8
     steps:
       - *attach_workspace
