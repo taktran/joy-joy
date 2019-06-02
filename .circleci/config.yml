@@ -11,6 +11,9 @@ references:
     tags:
       ignore: /.*/
 
+    branches:
+      ignore: /^gh-pages$/
+
   filters_release_package_build: &filters_release_package_build
     tags:
       only:
