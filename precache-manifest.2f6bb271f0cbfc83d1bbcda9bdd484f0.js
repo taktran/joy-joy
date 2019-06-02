@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7b0448c3aff6a6f64e61c609758d2dae",
+    "revision": "e1980918ef89a6c96a80f4da3ab21e80",
     "url": "/joy-joy/index.html"
   },
   {
-    "revision": "7c5bdf54d0adc24f3244",
+    "revision": "39e11f9eba2b1cdd9078",
     "url": "/joy-joy/static/css/main.b269aba3.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/joy-joy/static/js/2.02268aef.chunk.js"
   },
   {
-    "revision": "7c5bdf54d0adc24f3244",
-    "url": "/joy-joy/static/js/main.60e7e9ab.chunk.js"
+    "revision": "39e11f9eba2b1cdd9078",
+    "url": "/joy-joy/static/js/main.5fa4d869.chunk.js"
   },
   {
     "revision": "44a7d4ff9406e0a50845",
