@@ -96,7 +96,7 @@ jobs:
             - '44:cb:4b:98:b3:00:39:72:1e:69:6e:67:8e:58:f3:73'
       - run:
           name: Avoid hosts unknown for github
-          command: mkdir -p ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+          command: mkdir -p ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
       - run:
           name: Add git user name
           command: git config --global user.name "$GIT_USERNAME"
