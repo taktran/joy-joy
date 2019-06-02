@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/joy-joy/static/css/main.b269aba3.chunk.css",
-    "main.js": "/joy-joy/static/js/main.5fa4d869.chunk.js",
-    "main.js.map": "/joy-joy/static/js/main.5fa4d869.chunk.js.map",
+    "main.js": "/joy-joy/static/js/main.60e7e9ab.chunk.js",
+    "main.js.map": "/joy-joy/static/js/main.60e7e9ab.chunk.js.map",
     "runtime~main.js": "/joy-joy/static/js/runtime~main.fec017f3.js",
     "runtime~main.js.map": "/joy-joy/static/js/runtime~main.fec017f3.js.map",
     "static/js/2.02268aef.chunk.js": "/joy-joy/static/js/2.02268aef.chunk.js",
     "static/js/2.02268aef.chunk.js.map": "/joy-joy/static/js/2.02268aef.chunk.js.map",
     "index.html": "/joy-joy/index.html",
-    "precache-manifest.2f6bb271f0cbfc83d1bbcda9bdd484f0.js": "/joy-joy/precache-manifest.2f6bb271f0cbfc83d1bbcda9bdd484f0.js",
+    "precache-manifest.f3e0a1ef9dc92e156e313939530bfc47.js": "/joy-joy/precache-manifest.f3e0a1ef9dc92e156e313939530bfc47.js",
     "service-worker.js": "/joy-joy/service-worker.js",
     "static/css/main.b269aba3.chunk.css.map": "/joy-joy/static/css/main.b269aba3.chunk.css.map"
   }
