@@ -24,6 +24,8 @@ executors:
     environment:
       JOY_JOY_DIR: src/joy-joy
       DEMO_DIR: demo
+      GIT_USERNAME: ci-build
+      GIT_EMAIL: ci-build@tutaktran.com
     docker:
       - image: circleci/node:8
     working_directory: ~/project/build-node-8
@@ -92,6 +94,15 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - '44:cb:4b:98:b3:00:39:72:1e:69:6e:67:8e:58:f3:73'
+      - run:
+          name: Avoid hosts unknown for github
+          command: mkdir -p ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+      - run:
+          name: Add git user name
+          command: git config --global user.name "$GIT_USERNAME"
+      - run:
+          name: Add git user email
+          command: git config --global user.email "$GIT_EMAIL"
       - run:
           name: Deploy demo
           command: npm run deploy
